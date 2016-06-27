@@ -1,0 +1,63 @@
+; VARIOUS PREPROCESSING OPTIONS
+define			 = -DFLEXIBLE
+
+; RUN CONTROL PARAMETERS
+integrator               = md
+tinit                    = 0
+dt                       = 0.002
+nsteps                   = 500000  ; 2* 10,000,000
+
+; mode for center of mass motion removal
+comm_mode                = Linear
+nstcomm                  = 1000
+comm_grps                = system
+
+; Bond parameters
+constraint_algorithm = lincs	; holonomic constraints 
+constraints	= all-bonds	; all bonds (even heavy atom-H bonds) constrained
+lincs_iter	= 1		; accuracy of LINCS
+lincs_order	= 4		; also related to accuracy
+
+; Output control
+nstxout		= 500		; save coordinates every 0.2 ps
+nstenergy	= 500		; save energies every 0.2 ps
+
+; Temperature coupling is on
+tcoupl		= berendsen	; modified Berendsen thermostat
+tc-grps		= system	; two coupling groups - more accurate
+tau_t		= 0.2		; time constant, in ps
+ref_t		= 500 		; reference temperature, one for each group, in K
+
+; Pressure coupling is on
+pcoupl		= berendsen	; Pressure coupling on in NPT
+pcoupltype	= isotropic	; uniform scaling of box vectors
+tau_p		= 0.2		; time constant, in ps
+ref_p		= 1.0		; reference pressure, in bar
+compressibility = 4.5e-5	; isothermal compressibility of water, bar^-1
+;refcoord_scaling = com
+
+; Neighborsearching
+ns_type		= grid		; search neighboring grid cells
+nstlist		= 5		; 10 fs
+rlist		= 1.0		; short-range neighborlist cutoff (in nm)
+rcoulomb	= 1.0		; short-range electrostatic cutoff (in nm)
+rvdw		= 1.0		; short-range van der Waals cutoff (in nm)
+pbc             = xyz
+
+; Electrostatics
+coulombtype	= PME		; Particle Mesh Ewald for long-range electrostatics
+pme_order	= 4		; cubic interpolation
+fourierspacing	= 0.12		; grid spacing for FFT
+;DispCorr       = EnerPres  ; Added
+
+; EWALD/PME/PPPM parameters
+ewald_rtol               = 1e-05
+ewald_geometry           = 3d
+
+; GENERATE VELOCITIES FOR STARTUP RUN
+gen_vel                  = yes
+gen_temp                 = 500
+gen_seed                 = -1
+
+
+

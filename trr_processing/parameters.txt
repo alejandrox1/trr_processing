@@ -1,0 +1,54 @@
+
+Select the Force Field:
+ 0: GROMOS96 43a1 force field 
+ 1: GROMOS96 43a2 force field (improved alkane dihedrals)
+ 2: GROMOS96 45a3 force field (Schuler JCC 2001 22 1205)
+ 3: GROMOS96 53a5 force field (JCC 2004 vol 25 pag 1656) 
+ 4: GROMOS96 53a6 force field (JCC 2004 vol 25 pag 1656) 
+ 5: OPLS-AA/L all-atom force field (2001 aminoacid dihedrals)
+ 6: [DEPRECATED] Gromacs force field (see manual)
+ 7: [DEPRECATED] Gromacs force field with hydrogens for NMR
+ 8: Encad all-atom force field, using scaled-down vacuum charges
+ 9: Encad all-atom force field, using full solvent charges    
+WARNING: masses will be determined based on residue and atom names,
+         this can deviate from the real mass of the atom type
+Entries in atommass.dat: 178
+WARNING: vdwradii will be determined based on residue and atom names,
+         this can deviate from the real mass of the atom type
+Entries in vdwradii.dat: 28
+Entries in dgsolv.dat: 7
+Entries in electroneg.dat: 71
+Entries in elements.dat: 218
+Reading arg.pdb...
+Read 11 atoms
+Analyzing pdb file
+There are 1 chains and 0 blocks of water and 1 residues with 11 atoms
+
+  chain  #res #atoms
+  1 'X'     1     11  
+
+Reading residue database... (ffoplsaa)
+Processing chain 1 'X' (11 atoms, 1 residues)
+Checking for duplicate atoms....
+Select N-terminus type (start)
+ 0: NH3+
+ 1: ZWITTERION_NH3+
+ 2: NH2
+ 3: None
+N-terminus: ZWITTERION_NH3+
+Select C-terminus type (end)
+ 0: COO-
+ 1: ZWITTERION_COO-
+ 2: COOH
+ 3: None
+C-terminus: ZWITTERION_COO-
+Now there are 1 residues with 27 atoms
+		--------- PLEASE NOTE ------------
+You have succesfully generated a topology from: arg.pdb.
+The oplsaa force field and the tip3p water model are used.
+Note that the default mechanism for selecting a force fields has
+changed, starting from GROMACS version 3.2.0
+		--------- ETON ESAELP ------------
+
+gcq#112: "Correctomundo" (Pulp Fiction)
+

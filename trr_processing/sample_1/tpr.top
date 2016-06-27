@@ -1,0 +1,38 @@
+;	File 'topol.top' was generated
+;	By user: alarcj (112414)
+;	On host: gaia-19.gaia.local
+;	At date: Wed Aug 19 21:03:16 2015
+;
+;	This is your topology file
+;	TC5B
+;
+; Include forcefield parameters
+#include "ffoplsaa.itp"
+
+[ moleculetype ]
+; Include water topology
+#include "tip3p.itp"
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+; Include generic topology for ions
+#include "ions.itp"
+#include "tpr.itp"
+#include "arg.itp"
+
+[ system ]
+; Name
+TC5B in water
+
+[ molecules ]
+; Compound        #mols
+tc5b 	 1
+arg 	 4
+SOL         7906
+NA+         0
+CL-         5
